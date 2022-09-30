@@ -1,0 +1,41 @@
+main {
+  margin-top: 60px;
+}
+
+.account-title{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.account-container{
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+}
+
+section{
+  padding: 0px 20px;
+  width: 512px;
+}
+
+.account-subtitle{
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(198,198,198);
+  padding-bottom: 20px;
+  font-size: 16px;
+}
+.account-content{
+   margin: 20px 0px;
+}
+.account-button{
+  width: 100%;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+}
+.find-password-link{
+  color: rgb(127,127,127);
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+
+}
