@@ -21,7 +21,7 @@ registerButton.onclick = () => {
     contentType: "application/json", //전송할 데이터가 json인 경우
     data: JSON.stringify(user), //전송할 데이터가 있으면
     dataType: "json", //json외 text 등을 사용 할 수 있다.
-    success: (response, textStatus,request) => {
+    success: (response, textStatus, request) => {
       //성공시에 실행될 메소드
 
       console.log(response);
