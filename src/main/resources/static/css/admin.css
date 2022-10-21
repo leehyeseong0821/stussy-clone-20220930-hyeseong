@@ -73,6 +73,37 @@ textarea{
 
   overflow: auto;
 }
+.option-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+.page-number-list{
+  display: flex;
+}
+.page-number-list li{
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+
+  border: 1px solid rgb(198,198,198);
+  border-radius: 3px;
+  text-align: center;
+}
+.search-container{
+  display: flex;
+  justify-content: space-between;
+
+  width: 250px;
+}
+.search-button{
+  color: white;
+  background-color: black;
+}
+.search-input{
+  width: 200px;
+}
 .product-mst-list{
   width: 100%;
 }
