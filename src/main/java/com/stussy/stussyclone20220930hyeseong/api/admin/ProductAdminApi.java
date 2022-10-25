@@ -8,6 +8,7 @@ import com.stussy.stussyclone20220930hyeseong.dto.admin.ProductRegisterReqDto;
 import com.stussy.stussyclone20220930hyeseong.service.admin.ProductManagementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -16,26 +17,28 @@ import javax.validation.Valid;
 import java.util.Random;
 
 @RestController
-@RequestMapping("api/admin")
+@RequestMapping("/api/admin")
 @RequiredArgsConstructor
 public class ProductAdminApi {
+
     private final ProductManagementService productManagementService;
+
     @LogAspect
     @ValidAspect
     @PostMapping("/product")
     public ResponseEntity<?> registerProductMst(@Valid @RequestBody ProductRegisterReqDto productRegisterReqDto,
-                                                BindingResult bindingResult)throws Exception {
-
-            String name = productRegisterReqDto.getName();
+                                                BindingResult bindingResult) throws Exception {
+        String name = productRegisterReqDto.getName();
 
         Random random = new Random();
 
-        for(int i=0;i<100;i++){
+        for(int i = 0; i < 100; i++) {
 
-        productRegisterReqDto.setCategory(i /10 +1);
-        productRegisterReqDto.setName(name+(i+1));
-        productRegisterReqDto.setPrice((random.nextInt(10)+1) * 100000);
-        productManagementService.registerMst(productRegisterReqDto);
+            productRegisterReqDto.setCategory(i / 10 + 1);
+            productRegisterReqDto.setName(name + (i + 1));
+            productRegisterReqDto.setPrice((random.nextInt(10) + 1) * 100000);
+            productManagementService.registerMst(productRegisterReqDto);
+
         }
 
         return ResponseEntity.created(null)
@@ -44,8 +47,15 @@ public class ProductAdminApi {
 
     @GetMapping("/product/category")
     public ResponseEntity<?> getCategoryList() throws Exception {
+
         return ResponseEntity.ok()
-                .body(new CMRespDto<>("Get successfully",productManagementService.getCategoryList()));
+                .body(new CMRespDto<>("Get Successfully", productManagementService.getCategoryList()));
+    }
+
+    @GetMapping("/option/products/mst")
+    public ResponseEntity<?> getProductMstList() throws Exception {
+        return ResponseEntity.ok()
+                .body(new CMRespDto<>("Get Successfully", productManagementService.getProductMstList()));
     }
 
 }
