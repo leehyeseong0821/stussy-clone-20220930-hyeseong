@@ -117,6 +117,7 @@ class CommonApi {
         console.log(error);
       },
     });
+
     return responseResult;
   }
 }
@@ -133,7 +134,7 @@ class ProductApi {
       data: JSON.stringify(productMst),
       dataType: "json",
       success: (response) => {
-        responseResult = response.data;
+        responseData = response.data;
       },
       error: (error) => {
         console.log(error);
@@ -142,8 +143,10 @@ class ProductApi {
 
     return responseData;
   }
+
   getProductListRequest(listRequestParams) {
     let responseData = null;
+
     $.ajax({
       async: false,
       type: "get",
@@ -246,8 +249,8 @@ class RegisterEventService {
         shippingInfo
       );
 
-      const productApi = new productApi();
-      if (productApi.createProductRequest(productMst.getObject())) {
+      const pegisterApi = new ProductApi();
+      if (pegisterApi.createProductRequest(productMst.getObject())) {
         alert("상품 등록 완료");
         location.reload();
       }
@@ -274,7 +277,8 @@ class RegisterService {
     const productCategoryList = commonApi.getCategoryList();
 
     const productCategory = document.querySelector(".product-category");
-    productCategory.innerHTML = `<option value="none">상품 종류</option>`;
+    productCategory.innerHTML = `<option value="none">상품 종류</option><option value="1">test</option>`;
+
     productCategoryList.forEach((category) => {
       productCategory.innerHTML += `
             <option value="${category.id}">${category.name}</option>
@@ -291,7 +295,7 @@ class ListService {
   static #instance = null;
 
   getInstance() {
-    if (this.instance == null) {
+    if (this.#instance == null) {
       this.#instance = new ListService();
     }
     return this.#instance;
