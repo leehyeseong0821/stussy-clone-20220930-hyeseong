@@ -96,7 +96,7 @@
                 <br>
                 <label bor="product-color">색상</label>
                 <input type="text"id="product-color" class="product-color">
-                <button class="btn register-button">사진등록</button>
+               
                 <br>
                 <br>
                   <label bor="product-color">수량</label>
@@ -113,23 +113,25 @@
                   <br>
                   <br>
                   <br>
-                  <input type="file" class="product-img" name="files"multiple>
+                  <form enctype="multipart/form-data">
+                  <input type="file" class="files-input" name="files"multiple>
+                  </form>
+                  <button class="bth regist-button img-add-button">사진등록</button>
                   <ul class="file-list">
-                    <li class="file-info">
-                       <div class="file-img">
-                        <img src="/static/images/product1.png" alt="">
-                       </div>
-                       <div class="file-name">파일명.png</div>
-                       <button type="button" class="btn delete-button">삭제</button>
-                       
-                    </li>
+                   
                   </ul>
-                  
+                  <button class="bth regist-button upload-button">사진저장</button>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                </section>
               </div>
             </div>
           </main>
         </div>
         <script src="/static/js/admin/product_dtl_registration.js"></script>
+       
 </body>
 </html>
