@@ -96,6 +96,7 @@
                 #{img.save_name},
                 now(),
                 now()
+            now()
             }
         </foreach>
 
