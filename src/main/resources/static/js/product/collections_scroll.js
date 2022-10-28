@@ -46,11 +46,11 @@ class pageScroll {
     const body = document.querySelector("body");
 
     body.onscroll = () => {
-      // console.log("문서 전체 높이는 : " + body.offsetHeight);
-      // console.log("눈에 보이는 전체 높이는 : " + html.clientHeight);
-      // console.log("스크롤의 상단 위치 : " + html.scrollTop);
+      // console.log("문서 전체 높이: " + body.offsetHeight);
+      // console.log("눈에 보이는 영역 높이: " + html.clientHeight);
+      // console.log("스크롤의 상단 위치: " + html.scrollTop);
       let scrollStatus = body.offsetHeight - html.clientHeight - html.scrollTop;
-      console.log("현재 스크롤 상태:" + scrollStatus);
+      console.log("현재 스크롤 상태: " + scrollStatus);
       if (scrollStatus > -50 && scrollStatus < 50) {
         const nowPage = CollectionsService.getInstance().collectionsEntity.page;
         CollectionsService.getInstance().collectionsEntity.page =
@@ -69,6 +69,10 @@ class CollectionsService {
       this.#instance = new CollectionsService();
     }
     return this.#instance;
+  }
+
+  constructor() {
+    new pageScroll();
   }
 
   collectionsEntity = {
@@ -107,7 +111,7 @@ class CollectionsService {
       collectionProducts.innerHTML += `
             <li class="collection-product">
                 <div class="product-img">
-                    <img src="/static/images/product1.png">
+                    <img src="/static/upload/product/${product.mainImg}">
                 </div>
                 <div class="product-name">
                     ${product.productName}
@@ -123,5 +127,4 @@ class CollectionsService {
 
 window.onload = () => {
   CollectionsService.getInstance().loadCollections();
-  new pageScroll();
 };

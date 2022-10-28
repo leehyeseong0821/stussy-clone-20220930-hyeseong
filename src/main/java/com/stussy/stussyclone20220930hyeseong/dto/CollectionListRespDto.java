@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class CollectionListResqDto {
+public class CollectionListRespDto {
     private int productId;
     private String productName;
     private int productPrice;

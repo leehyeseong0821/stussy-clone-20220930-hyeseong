@@ -1,6 +1,6 @@
 package com.stussy.stussyclone20220930hyeseong.domain;
 
-import com.stussy.stussyclone20220930hyeseong.dto.CollectionListResqDto;
+import com.stussy.stussyclone20220930hyeseong.dto.CollectionListRespDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,12 +15,12 @@ public class CollectionsProduct {
     private String save_name;
     private int product_total_count;
 
-    public CollectionListResqDto toDto() {
-        return CollectionListResqDto.builder()
+    public CollectionListRespDto toDto() {
+        return CollectionListRespDto.builder()
                 .productId(id)
                 .productName(pdt_name)
                 .productPrice(pdt_price)
-                .mainImg(save_name)
+                .mainImg(save_name == null ? "noimage.png" : save_name)
                 .productTotalCount(product_total_count)
                 .build();
     }
