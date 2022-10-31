@@ -6,12 +6,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-public class CollectionsController {
+public class ProductController {
 
     @GetMapping("/collections/{category}")
     public String loadCollection(@PathVariable String category){
 
         return "product/collections_scroll";
-
     }
+
+    @GetMapping("/product/{pdtId}")
+    public String loadProductDetail(@PathVariable String pdtId){
+        return "product/product_detail";
+    }
+
 }
