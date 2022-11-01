@@ -83,6 +83,7 @@ class CollectionsService {
     totalCount: 0,
     maxPage: 0,
   };
+
   constructor() {
     this.pdtIdList = new Array();
   }
@@ -129,6 +130,7 @@ class CollectionsService {
             </li>
             `;
     });
+
     this.addProductListEvent();
   }
 
