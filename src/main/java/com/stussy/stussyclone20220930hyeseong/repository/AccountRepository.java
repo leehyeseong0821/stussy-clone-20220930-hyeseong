@@ -10,4 +10,6 @@ public interface AccountRepository {
 
      public int saveUser(User user) throws Exception;
 
+     public int updateProvider(User user) throws Exception;
+
 }
